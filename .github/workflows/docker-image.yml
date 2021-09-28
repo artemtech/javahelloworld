@@ -19,7 +19,7 @@ jobs:
     - name: Push Docker Image
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
-        image: repo/image
+        image: artemtech/javahelloworld
         tags: latest
         registry: index.docker.io
         dockerfile: Dockerfile
