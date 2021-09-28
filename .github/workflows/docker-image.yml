@@ -21,7 +21,7 @@ jobs:
       with:
         image: artemtech/javahelloworld
         tags: latest
-        registry: index.docker.io
+        registry: docker.io
         dockerfile: Dockerfile
         username: artemtech
         password: ${{ secrets.DOCKER_TOKEN }}
