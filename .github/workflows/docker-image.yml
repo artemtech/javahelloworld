@@ -22,7 +22,7 @@ jobs:
         # Username Name with push permission
         acr-tokenname: artemtech
         # Token/PWD with push permission
-        acr-token: ${secrets.DOCKER_TOKEN}
+        acr-token: ${{ secrets.DOCKER_TOKEN }}
         # Docker Account Name
         acr-account: index.docker.io
         # Docker Image Name
