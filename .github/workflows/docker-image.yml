@@ -15,13 +15,13 @@ jobs:
     steps:
     - name: checkout the repo
       uses: actions/checkout@v2
-    
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag artemtech/javahelloworld:latest
       
     - name: Push Docker Image
-      uses: AhnSeongHyun/action-tag-docker-build-push@master
+      uses: mr-smithers-excellent/docker-build-push@v5
       with:
-        repo_name: artemtech/javahelloworld
+        image: repo/image
+        tags: latest
+        registry: index.docker.io
+        dockerfile: Dockerfile
         username: artemtech
         password: ${{ secrets.DOCKER_TOKEN }}
