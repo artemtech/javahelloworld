@@ -13,17 +13,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: checkout the repo
+      uses: actions/checkout@v2
+    
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag artemtech/javahelloworld:latest
+      
     - name: Push Docker Image
-      uses: julioarruda/pushimagetoregistry@v1
+      uses: AhnSeongHyun/action-tag-docker-build-push@master
       with:
-        # Username Name with push permission
-        acr-tokenname: artemtech
-        # Token/PWD with push permission
-        acr-token: ${{ secrets.DOCKER_TOKEN }}
-        # Docker Account Name
-        acr-account: index.docker.io
-        # Docker Image Name
-        acr-imagename: artemtech/javahelloworld:latest
+        repo_name: artemtech/javahelloworld
+        username: artemtech
+        password: ${{ secrets.DOCKER_TOKEN }}
